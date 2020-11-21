@@ -72,7 +72,7 @@
         <OutArgument x:TypeArguments="x:Boolean">[ret]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
       </Assign.Value>
     </Assign>
   </Sequence>
