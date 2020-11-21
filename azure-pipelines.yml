@@ -1,0 +1,32 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UiPathPack@2
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    orchestratorConnection: 'TestSuite'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+
+- task: UiPathTest@2
+  inputs:
+    testTarget: 'TestProject'
+    orchestratorConnection: 'TestSuite'
+    environment: 'MarcoLin'
+    folderName: 'marco.lin'
+
+- task: UiPathDeploy@2
+  inputs:
+    orchestratorConnection: 'TestSuite'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
+    folderName: 'marco.lin'
+    environments: 'MarcoLin'
