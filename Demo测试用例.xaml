@@ -80,6 +80,9 @@
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
     <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="576,204.5" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="Input" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
